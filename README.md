@@ -8,7 +8,7 @@
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/anttiviljami/human-filetypes/blob/master/LICENSE)
 [![Buy me a coffee](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-orange)](https://buymeacoff.ee/anttiviljami)
 
-Human-friendly taxonomy for file types.
+Human-friendly taxonomy for file types. Zero dependencies.
 
 List of mime types sourced from [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
