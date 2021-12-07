@@ -1,6 +1,6 @@
 {
   "name": "human-filetypes",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Human-friendly taxonomy for file types",
   "main": "index.js",
   "scripts": {
