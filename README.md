@@ -78,3 +78,15 @@ The following taxonomy is used:
 | `text`         | Plain text file                | `.txt`, `.html`, `.json`  |
 | `application`  | Executable/application package | `.exe`, `.jar`, `.swf`    |
 | `unknown`      | Unknown                        | -                         |
+
+File kinds are also available to import as an `enum`:
+
+```ts
+import { FileKind } from 'human-filetypes'
+
+assert.equal(fromExtension('.zip'), FileKind.Archive)
+```
+
+## Contributing
+
+human-filetypes is Free and Open Source Software. Issues and pull requests are more than welcome!
