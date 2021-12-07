@@ -1,18 +1,18 @@
 name: CI
 on:
   push:
-    branches: ['master']
+    branches: ['main']
     tags: ['*']
   pull_request:
-    branches: ['master']
+    branches: ['main']
 
 jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
       - run: npm ci
       - run: npm run lint
       - run: npm run build
@@ -27,8 +27,8 @@ jobs:
     needs:
       - test
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
