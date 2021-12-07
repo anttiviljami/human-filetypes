@@ -7,7 +7,7 @@ export const fromExtension = (input: string) => {
 
   const match = Object.entries(mimeData).find(([, data]) => data.extensions?.find((ext) => extension.endsWith(ext)));
   if (match) {
-    const [_, mimeData] = match;
+    const [, mimeData] = match;
     return mimeData.kind;
   }
 
