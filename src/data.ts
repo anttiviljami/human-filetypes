@@ -6,8 +6,8 @@ export enum FileKind {
   Document = 'document',
   Spreadsheet = 'spreadsheet',
   Presentation = 'presentation',
-  Text = 'text',
   Font = 'font',
+  Text = 'text',
   Application = 'application',
   Unknown = 'unknown',
 }
@@ -18,7 +18,7 @@ interface MimeData {
   extensions?: string[];
 }
 
-export const mimes: { [mime: string]: MimeData } = {
+export const mimeData: { [mime: string]: MimeData } = {
   'audio/aac': { extensions: ['.aac'], label: 'AAC audio', kind: FileKind.Audio },
   'application/x-abiword': {
     extensions: ['.abw'],
@@ -37,9 +37,9 @@ export const mimes: { [mime: string]: MimeData } = {
     kind: FileKind.Document,
   },
   'application/octet-stream': {
-    extensions: ['.bin'],
-    label: 'Any kind of binary data	application/octet-stream',
-    kind: FileKind.Unknown,
+    extensions: ['.bin', '.exe', '.dll', '.so', '.dmg'],
+    label: 'Any kind of binary data',
+    kind: FileKind.Application,
   },
   'image/bmp': { extensions: ['.bmp'], label: 'Bitmap Graphics', kind: FileKind.Image },
   'application/x-bzip': { extensions: ['.bz'], label: 'BZip archive', kind: FileKind.Archive },
@@ -64,10 +64,10 @@ export const mimes: { [mime: string]: MimeData } = {
     label: 'Electronic publication (EPUB)',
     kind: FileKind.Document,
   },
-  'application/gzip': { extensions: ['.gz'], label: 'GZip Compressed Archive', kind: FileKind.Archive },
+  'application/gzip': { extensions: ['.gz', '.gzip'], label: 'GZip Compressed Archive', kind: FileKind.Archive },
   'image/gif': { extensions: ['.gif'], label: 'Graphics Interchange Format (GIF)', kind: FileKind.Image },
-  'HyperText Markup Language (HTML)': {
-    extensions: ['.htm'],
+  'application/html': {
+    extensions: ['.htm', '.html'],
     label: '.html	HyperText Markup Language (HTML)',
     kind: FileKind.Text,
   },
@@ -82,21 +82,21 @@ export const mimes: { [mime: string]: MimeData } = {
     label: 'Java Archive (JAR)	application/java-archive',
     kind: FileKind.Application,
   },
-  'image/jpeg': { extensions: ['.jpeg'], label: 'JPEG image', kind: FileKind.Image },
+  'image/jpeg': { extensions: ['.jpeg', '.jpg'], label: 'JPEG image', kind: FileKind.Image },
   'text/javascript': {
-    extensions: ['.js', '.mjs'],
+    extensions: ['.js', '.mjs', '.jsx', '.ts', '.tsx'],
     label: 'JavaScript',
     kind: FileKind.Text,
   },
   'application/json': { extensions: ['.json'], label: 'JSON', kind: FileKind.Text },
   'application/ld+json': { extensions: ['.jsonld'], label: 'JSON-LD format	application/ld+json', kind: FileKind.Text },
   'audio/midi': {
-    extensions: ['.mid'],
+    extensions: ['.mid', '.midi'],
     label: '.midi	Musical Instrument Digital Interface (MIDI)',
     kind: FileKind.Audio,
   },
   'audio/x-midi': {
-    extensions: ['.mid'],
+    extensions: ['.mid', '.midi'],
     label: '.midi	Musical Instrument Digital Interface (MIDI)',
     kind: FileKind.Audio,
   },
@@ -123,7 +123,7 @@ export const mimes: { [mime: string]: MimeData } = {
     label: 'OpenDocument text document',
     kind: FileKind.Document,
   },
-  'audio/ogg': { extensions: ['.oga'], label: 'OGG audio', kind: FileKind.Audio },
+  'audio/ogg': { extensions: ['.oga', '.ogg'], label: 'OGG audio', kind: FileKind.Audio },
   'video/ogg': { extensions: ['.ogv'], label: 'OGG video', kind: FileKind.Video },
   'application/ogg': { extensions: ['.ogx'], label: 'OGG', kind: FileKind.Video },
   'audio/opus': { extensions: ['.opus'], label: 'Opus audio', kind: FileKind.Audio },
@@ -132,10 +132,10 @@ export const mimes: { [mime: string]: MimeData } = {
   'application/pdf': { extensions: ['.pdf'], label: 'Adobe Portable Document Format (PDF)', kind: FileKind.Document },
   'application/x-httpd-php': {
     extensions: ['.php'],
-    label: 'Hypertext Preprocessor (Personal Home Page)	application/x-httpd-php',
+    label: 'Hypertext Preprocessor (Personal Home Page)',
     kind: FileKind.Text,
   },
-  'application/vnd.ms-powerpoint': { extensions: ['.ppt'], label: 'Microsoft PowerPoint', kind: FileKind.Document },
+  'application/vnd.ms-powerpoint': { extensions: ['.ppt'], label: 'Microsoft PowerPoint', kind: FileKind.Presentation },
   'application/vnd.openxmlformats-officedocument.presentationml.presentation': {
     extensions: ['.pptx'],
     label: 'Microsoft PowerPoint (OpenXML)',
@@ -145,25 +145,26 @@ export const mimes: { [mime: string]: MimeData } = {
   'application/rtf': { extensions: ['.rtf'], label: 'Rich Text Format (RTF)', kind: FileKind.Document },
   'application/x-sh': { extensions: ['.sh'], label: 'Bourne shell script', kind: FileKind.Text },
   'image/svg+xml': { extensions: ['.svg'], label: 'Scalable Vector Graphics (SVG)', kind: FileKind.Image },
+  'image/svg': { extensions: ['.svg'], label: 'Scalable Vector Graphics (SVG)', kind: FileKind.Image },
   'application/x-shockwave-flash': {
     extensions: ['.swf'],
     label: 'Adobe Flash document',
     kind: FileKind.Application,
   },
   'application/x-tar': { extensions: ['.tar'], label: 'Tape Archive (TAR)	application/x-tar', kind: FileKind.Archive },
-  'Tagged Image File Format (TIFF)': {
+  'image/tiff': {
     extensions: ['.tif'],
     label: '.tiff File Format (TIFF)',
     kind: FileKind.Image,
   },
   'video/mp2t': { extensions: ['.ts'], label: 'MPEG transport stream', kind: FileKind.Video },
   'font/ttf': { extensions: ['.ttf'], label: 'TrueType Font	font/ttf', kind: FileKind.Font },
-  'text/plain': { extensions: ['.txt'], label: 'Text, (generally ASCII or ISO 8859-n)', kind: FileKind.Text },
+  'text/plain': { extensions: ['.txt'], label: 'Plain Text', kind: FileKind.Text },
   'application/vnd.visio': { extensions: ['.vsd'], label: 'Microsoft Visio', kind: FileKind.Image },
   'audio/wav': { extensions: ['.wav'], label: 'Waveform Audio Format', kind: FileKind.Audio },
   'audio/webm': { extensions: ['.weba'], label: 'WEBM audio', kind: FileKind.Audio },
-  'video/webm': { extensions: ['.webm'], label: 'WEBM video	video/webm', kind: FileKind.Video },
-  'image/webp': { extensions: ['.webp'], label: 'WEBP image	image/webp', kind: FileKind.Image },
+  'video/webm': { extensions: ['.webm'], label: 'WEBM video', kind: FileKind.Video },
+  'image/webp': { extensions: ['.webp'], label: 'WEBP image', kind: FileKind.Image },
   'font/woff': { extensions: ['.woff'], label: 'Web Open Font Format (WOFF)', kind: FileKind.Font },
   'font/woff2': { extensions: ['.woff2'], label: 'Web Open Font Format (WOFF)', kind: FileKind.Font },
   'application/xhtml+xml': { extensions: ['.xhtml'], label: 'XHTML', kind: FileKind.Text },

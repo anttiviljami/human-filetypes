@@ -1,11 +1,14 @@
 {
   "name": "human-filetypes",
-  "version": "0.0.1-alpha",
+  "version": "0.1.0",
   "description": "Human-friendly taxonomy for file types",
   "main": "index.js",
   "scripts": {
+    "dev": "concurrently npm:test:watch npm:build:watch",
     "test": "jest",
+    "test:watch": "jest --watch",
     "build": "tsc",
+    "build:watch": "tsc -w",
     "lint": "eslint src --ext ts"
   },
   "repository": {
@@ -24,10 +27,17 @@
   "bugs": {
     "url": "https://github.com/anttiviljami/human-filetypes/issues"
   },
+  "files": [
+    "*.js",
+    "*.map",
+    "*.d.ts",
+    "!*.test.*"
+  ],
   "homepage": "https://github.com/anttiviljami/human-filetypes#readme",
   "devDependencies": {
     "@types/jest": "^27.0.3",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "concurrently": "^6.4.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslintrc": "^1.0.6",
