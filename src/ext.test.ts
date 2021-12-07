@@ -70,6 +70,7 @@ describe('fromExtension', () => {
   describe('spreadsheet', () => {
     test.each([
       ['csv', 'spreadsheet'],
+      ['tsv', 'spreadsheet'],
       ['xls', 'spreadsheet'],
       ['xlsx', 'spreadsheet'],
       ['ods', 'spreadsheet'],

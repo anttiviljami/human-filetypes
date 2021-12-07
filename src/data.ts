@@ -47,7 +47,16 @@ export const mimeData: { [mime: string]: MimeData } = {
   'application/x-cdf': { extensions: ['.cda'], label: 'CD audio', kind: FileKind.Audio },
   'application/x-csh': { extensions: ['.csh'], label: 'C-Shell script', kind: FileKind.Text },
   'text/css': { extensions: ['.css'], label: 'Cascading Style Sheets (CSS)', kind: FileKind.Text },
-  'text/csv': { extensions: ['.csv'], label: 'Comma-separated values (CSV)', kind: FileKind.Spreadsheet },
+  'text/csv': {
+    extensions: ['.csv'],
+    label: 'Comma/column-separated values',
+    kind: FileKind.Spreadsheet,
+  },
+  'text/tsv': {
+    extensions: ['.tsv'],
+    label: 'Tab-separated values',
+    kind: FileKind.Spreadsheet,
+  },
   'application/msword': { extensions: ['.doc'], label: 'Microsoft Word', kind: FileKind.Document },
   'application/vnd.openxmlformats-officedocument.wordprocessingml.document': {
     extensions: ['.docx'],
