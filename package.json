@@ -3,6 +3,7 @@
   "version": "0.1.5",
   "description": "Human-friendly taxonomy for file types",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "dev": "concurrently npm:test:watch npm:build:watch",
     "test": "jest",
