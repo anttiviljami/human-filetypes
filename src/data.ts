@@ -174,6 +174,7 @@ export const mimeData: { [mime: string]: MimeData } = {
   'audio/webm': { extensions: ['.weba'], label: 'WEBM audio', kind: FileKind.Audio },
   'video/webm': { extensions: ['.webm'], label: 'WEBM video', kind: FileKind.Video },
   'image/webp': { extensions: ['.webp'], label: 'WEBP image', kind: FileKind.Image },
+  'image/heic': { extensions: ['.heic', '.heif'], label: 'HEIC (High-Efficiency Image Container) image', kind: FileKind.Image },
   'font/woff': { extensions: ['.woff'], label: 'Web Open Font Format (WOFF)', kind: FileKind.Font },
   'font/woff2': { extensions: ['.woff2'], label: 'Web Open Font Format (WOFF)', kind: FileKind.Font },
   'application/xhtml+xml': { extensions: ['.xhtml'], label: 'XHTML', kind: FileKind.Text },
