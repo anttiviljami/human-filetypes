@@ -3,8 +3,6 @@
 [![CI](https://github.com/anttiviljami/human-filetypes/workflows/CI/badge.svg)](https://github.com/anttiviljami/human-filetypes/actions?query=workflow%3ACI)
 [![npm version](https://img.shields.io/npm/v/human-filetypes.svg)](https://www.npmjs.com/package/human-filetypes)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/human-filetypes?label=gzip%20bundle)](https://www.npmjs.com/package/human-filetypes)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/anttiviljami/human-filetypes.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/anttiviljami/human-filetypes/alerts/)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/anttiviljami/human-filetypes.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/anttiviljami/human-filetypes/context:javascript)
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/anttiviljami/human-filetypes/blob/master/LICENSE)
 [![Buy me a coffee](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-orange)](https://buymeacoff.ee/anttiviljami)
 
