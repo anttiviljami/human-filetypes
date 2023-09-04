@@ -8,4 +8,9 @@ describe('root module', () => {
     const module = await import('.');
     expect(typeof module.fromExtension).toBe('function');
   });
+
+  it('should export fromFileKind', async () => {
+    const module = await import('.');
+    expect(typeof module.fromFileKind).toBe('function');
+  });
 });

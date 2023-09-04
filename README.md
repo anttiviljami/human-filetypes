@@ -16,10 +16,10 @@ List of mime types sourced from [MDN](https://developer.mozilla.org/en-US/docs/W
 npm i human-filetypes
 ```
 
-The module exports two functions `fromMime()` and `fromExtension()`.
+The module exports three functions `fromMime()`, `fromExtension()` and `fromFileKind()`.
 
 ```js
-const { fromMime, fromExtension } = require('human-filetypes')
+const { fromMime, fromExtension, fromFileKind } = require('human-filetypes')
 ```
 
 ### fromMime
@@ -57,6 +57,22 @@ assert.equal(fromExtension('.webm'), 'video')
 assert.equal(fromExtension('.json'), 'text')
 assert.equal(fromExtension('.exe'), 'application')
 assert.equal(fromExtension('.zip'), 'archive')
+```
+
+
+### fromFileKind
+
+`fromFileKind()` converts a given file kind to the list of supported mime types.
+
+```js
+assert.equal(fromFileKind('image'), ['image/gif', 'image/jpeg', 'image/png'....])
+assert.equal(fromFileKind('audio'), ['audio/midi', 'audio/x-midi', 'audio/mpeg'...])
+assert.equal(fromFileKind('video'), ['video/mp4', 'video/mpeg', 'video/ogg'...])
+assert.equal(fromFileKind('document'), ['application/pdf', 'application/rtf'...])
+assert.equal(fromFileKind('font'), ['font/ttf', 'font/woff'...])
+assert.equal(fromFileKind('text'), ['text/css', 'application/html'...])
+assert.equal(fromFileKind('application'), ['application/octet-stream', 'application/java-archive'...])
+assert.equal(fromFileKind('archive'), ['application/gzip', 'application/x-tar'...])
 ```
 
 ### Human-readable file kinds
