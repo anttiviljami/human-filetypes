@@ -16,10 +16,11 @@ List of mime types sourced from [MDN](https://developer.mozilla.org/en-US/docs/W
 npm i human-filetypes
 ```
 
-The module exports four functions `fromMime()`, `fromExtension()`, `getMimeTypes()` and `getExtensions()`.
+The module exports two main operations `fromMime()` and `fromExtension()`
+
 
 ```js
-const { fromMime, fromExtension, getMimeTypes, getExtensions } = require('human-filetypes')
+import { fromMime, fromExtension  } from 'human-filetypes'
 ```
 
 ### fromMime
@@ -59,38 +60,6 @@ assert.equal(fromExtension('.exe'), 'application')
 assert.equal(fromExtension('.zip'), 'archive')
 ```
 
-
-### getMimeTypes
-
-`getMimeTypes()` returns the list of supported mime types for a given file kind.
-
-```js
-assert.equal(getMimeTypes('image'), ['image/gif', 'image/jpeg', 'image/png'....])
-assert.equal(getMimeTypes('audio'), ['audio/midi', 'audio/x-midi', 'audio/mpeg'...])
-assert.equal(getMimeTypes('video'), ['video/mp4', 'video/mpeg', 'video/ogg'...])
-assert.equal(getMimeTypes('document'), ['application/pdf', 'application/rtf'...])
-assert.equal(getMimeTypes('font'), ['font/ttf', 'font/woff'...])
-assert.equal(getMimeTypes('text'), ['text/css', 'application/html'...])
-assert.equal(getMimeTypes('application'), ['application/octet-stream', 'application/java-archive'...])
-assert.equal(getMimeTypes('archive'), ['application/gzip', 'application/x-tar'...])
-```
-
-
-### getExtensions
-
-`getExtensions()` returns the list of supported mime types for a given file kind.
-
-```js
-assert.equal(getExtensions('image'), ['.png', '.jpeg'....])
-assert.equal(getExtensions('audio'), ['.mp3', '.ogg', '.wav'...])
-assert.equal(getExtensions('video'), ['.mp4', '.mpeg', '.ogv'...])
-assert.equal(getExtensions('document'), ['.docx', '.pdf'...])
-assert.equal(getExtensions('font'), ['.ttf', '.woff'...])
-assert.equal(getExtensions('text'), ['.css', '.txt', '.csh'...])
-assert.equal(getExtensions('application'), ['.bin', '.exe', '.dll'...])
-assert.equal(getExtensions('archive'), ['.zip', '.rar'...])
-```
-
 ### Human-readable file kinds
 
 The following taxonomy is used:
@@ -115,6 +84,36 @@ File kinds are also available to import as an `enum`:
 import { FileKind } from 'human-filetypes'
 
 assert.equal(fromExtension('.zip'), FileKind.Archive)
+```
+
+### Reverse operations
+
+In addition, we provide reverse operations `getMimeTypes()` and `getExtensions()`.
+
+`getMimeTypes()` returns the list of mime types for a given file kind.
+
+```js
+getMimeTypes('image') // ['image/gif', 'image/jpeg', 'image/png', ...]
+getMimeTypes('audio') // ['audio/midi', 'audio/x-midi', 'audio/mpeg', ...]
+getMimeTypes('video') // ['video/mp4', 'video/mpeg', 'video/ogg', ...]
+etMimeTypes('document') // ['application/pdf', 'application/rtf', ...]
+getMimeTypes('font') // ['font/ttf', 'font/woff', ...]
+getMimeTypes('text') // ['text/css', 'application/html', ...]
+getMimeTypes('application') // ['application/octet-stream', 'application/java-archive', ...]
+getMimeTypes('archive') // ['application/gzip', 'application/x-tar', ...]
+```
+
+`getExtensions()` returns the list of extensions for a given file kind.
+
+```js
+getExtensions('image') // ['.png', '.jpeg', ...]
+getExtensions('audio') // ['.mp3', '.ogg', '.wav', ...]
+getExtensions('video') // ['.mp4', '.mpeg', '.ogv', ...]
+getExtensions('document') // ['.docx', '.pdf', ...]
+getExtensions('font') // ['.ttf', '.woff', ...])
+getExtensions('text') // ['.css', '.txt', '.csh', ...]
+getExtensions('application') // ['.bin', '.exe', '.dll', ...]
+getExtensions('archive') // ['.zip', '.rar', ...]
 ```
 
 ## Contributing
