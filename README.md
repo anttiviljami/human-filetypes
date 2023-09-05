@@ -90,7 +90,7 @@ assert.equal(fromExtension('.zip'), FileKind.Archive)
 
 In addition, we provide reverse operations `getMimeTypes()` and `getExtensions()`.
 
-`getMimeTypes()` returns the list of mime types for a given file kind.
+`getMimeTypes()` returns the list of known mime types for a given file kind.
 
 ```js
 getMimeTypes('image') // ['image/gif', 'image/jpeg', 'image/png', ...]
@@ -103,17 +103,17 @@ getMimeTypes('application') // ['application/octet-stream', 'application/java-ar
 getMimeTypes('archive') // ['application/gzip', 'application/x-tar', ...]
 ```
 
-`getExtensions()` returns the list of extensions for a given file kind.
+`getExtensions()` returns the list of known extensions for a given file kind.
 
 ```js
-getExtensions('image') // ['.png', '.jpeg', ...]
-getExtensions('audio') // ['.mp3', '.ogg', '.wav', ...]
-getExtensions('video') // ['.mp4', '.mpeg', '.ogv', ...]
-getExtensions('document') // ['.docx', '.pdf', ...]
-getExtensions('font') // ['.ttf', '.woff', ...])
-getExtensions('text') // ['.css', '.txt', '.csh', ...]
-getExtensions('application') // ['.bin', '.exe', '.dll', ...]
-getExtensions('archive') // ['.zip', '.rar', ...]
+getExtensions('image') // ['png', 'jpeg', ...]
+getExtensions('audio') // ['mp3', 'ogg', 'wav', ...]
+getExtensions('video') // ['mp4', 'mpeg', 'ogv', ...]
+getExtensions('document') // ['docx', 'pdf', ...]
+getExtensions('font') // ['ttf', 'woff', ...])
+getExtensions('text') // ['css', 'txt', 'csh', ...]
+getExtensions('application') // ['bin', 'exe', 'dll', ...]
+getExtensions('archive') // ['zip', 'rar', ...]
 ```
 
 ## Contributing
