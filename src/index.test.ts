@@ -9,8 +9,13 @@ describe('root module', () => {
     expect(typeof module.fromExtension).toBe('function');
   });
 
-  it('should export fromFileKind', async () => {
+  it('should export getMimeTypes', async () => {
     const module = await import('.');
-    expect(typeof module.fromFileKind).toBe('function');
+    expect(typeof module.getMimeTypes).toBe('function');
+  });
+
+  it('should export getExtensions', async () => {
+    const module = await import('.');
+    expect(typeof module.getExtensions).toBe('function');
   });
 });

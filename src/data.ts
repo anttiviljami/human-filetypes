@@ -12,7 +12,7 @@ export enum FileKind {
   Unknown = 'unknown',
 }
 
-interface MimeData {
+export interface MimeData {
   kind: FileKind;
   label: string;
   extensions?: string[];

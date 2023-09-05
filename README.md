@@ -16,10 +16,10 @@ List of mime types sourced from [MDN](https://developer.mozilla.org/en-US/docs/W
 npm i human-filetypes
 ```
 
-The module exports three functions `fromMime()`, `fromExtension()` and `fromFileKind()`.
+The module exports four functions `fromMime()`, `fromExtension()`, `getMimeTypes()` and `getExtensions()`.
 
 ```js
-const { fromMime, fromExtension, fromFileKind } = require('human-filetypes')
+const { fromMime, fromExtension, getMimeTypes, getExtensions } = require('human-filetypes')
 ```
 
 ### fromMime
@@ -60,19 +60,35 @@ assert.equal(fromExtension('.zip'), 'archive')
 ```
 
 
-### fromFileKind
+### getMimeTypes
 
-`fromFileKind()` converts a given file kind to the list of supported mime types.
+`getMimeTypes()` returns the list of supported mime types for a given file kind.
 
 ```js
-assert.equal(fromFileKind('image'), ['image/gif', 'image/jpeg', 'image/png'....])
-assert.equal(fromFileKind('audio'), ['audio/midi', 'audio/x-midi', 'audio/mpeg'...])
-assert.equal(fromFileKind('video'), ['video/mp4', 'video/mpeg', 'video/ogg'...])
-assert.equal(fromFileKind('document'), ['application/pdf', 'application/rtf'...])
-assert.equal(fromFileKind('font'), ['font/ttf', 'font/woff'...])
-assert.equal(fromFileKind('text'), ['text/css', 'application/html'...])
-assert.equal(fromFileKind('application'), ['application/octet-stream', 'application/java-archive'...])
-assert.equal(fromFileKind('archive'), ['application/gzip', 'application/x-tar'...])
+assert.equal(getMimeTypes('image'), ['image/gif', 'image/jpeg', 'image/png'....])
+assert.equal(getMimeTypes('audio'), ['audio/midi', 'audio/x-midi', 'audio/mpeg'...])
+assert.equal(getMimeTypes('video'), ['video/mp4', 'video/mpeg', 'video/ogg'...])
+assert.equal(getMimeTypes('document'), ['application/pdf', 'application/rtf'...])
+assert.equal(getMimeTypes('font'), ['font/ttf', 'font/woff'...])
+assert.equal(getMimeTypes('text'), ['text/css', 'application/html'...])
+assert.equal(getMimeTypes('application'), ['application/octet-stream', 'application/java-archive'...])
+assert.equal(getMimeTypes('archive'), ['application/gzip', 'application/x-tar'...])
+```
+
+
+### getExtensions
+
+`getExtensions()` returns the list of supported mime types for a given file kind.
+
+```js
+assert.equal(getExtensions('image'), ['.png', '.jpeg'....])
+assert.equal(getExtensions('audio'), ['.mp3', '.ogg', '.wav'...])
+assert.equal(getExtensions('video'), ['.mp4', '.mpeg', '.ogv'...])
+assert.equal(getExtensions('document'), ['.docx', '.pdf'...])
+assert.equal(getExtensions('font'), ['.ttf', '.woff'...])
+assert.equal(getExtensions('text'), ['.css', '.txt', '.csh'...])
+assert.equal(getExtensions('application'), ['.bin', '.exe', '.dll'...])
+assert.equal(getExtensions('archive'), ['.zip', '.rar'...])
 ```
 
 ### Human-readable file kinds
