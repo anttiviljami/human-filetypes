@@ -3,7 +3,7 @@ import { mimeData, FileKind, MimeData } from './data';
 export const fromExtension = (input: string) => {
   if (!input) return FileKind.Unknown;
 
-  const extension = `.${input?.replace(/^\./, '')}`;
+  const extension = `.${input?.replace(/^\./, '')}`?.toLowerCase();
 
   const match = Object.entries(mimeData).find(([, data]) => data.extensions?.find((ext) => extension.endsWith(ext)));
   if (match) {
