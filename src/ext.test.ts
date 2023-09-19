@@ -2,110 +2,155 @@ import { FileKind } from './data';
 import { fromExtension, getExtensions } from './ext';
 
 describe('extension', () => {
-  const getTestCases = (extensions: string[], type: string) => {
-    const testCases: Array<[string, string]> = [];
-    extensions.forEach((ext) => {
-      testCases.push([ext, type]);
-      testCases.push([ext?.toUpperCase(), type]);
-    });
-    return testCases;
-  };
-
   describe('fromExtension', () => {
+    describe('uppercase extensions', () => {
+      test.each([
+        ['asd', 'ASD'],
+        ['.asd', '.ASD'],
+        ['jpg', 'JPG'],
+        ['mp4', 'MP4'],
+      ])('fromExtension("%s") should be equal fromExtension("%s")', function (lowerCase, upperCase) {
+        expect(fromExtension(lowerCase)).toBe(fromExtension(upperCase));
+      });
+    });
+
     describe('image', () => {
-      const extensions = ['png', 'jpg', 'jpeg', 'svg', 'webp', 'gif'];
-      const testCases = getTestCases(extensions, 'image');
-      test.each(testCases)('%s should return %s', function (input, expected) {
+      test.each([
+        ['png', 'image'],
+        ['jpg', 'image'],
+        ['jpeg', 'image'],
+        ['svg', 'image'],
+        ['webp', 'image'],
+        ['gif', 'image'],
+      ])('%s should return %s', function (input, expected) {
         expect(fromExtension(input)).toBe(expected);
         expect(fromExtension(`.${input}`)).toBe(expected);
       });
     });
 
     describe('video', () => {
-      const extensions = ['mp4', 'avi', 'ogv', 'ogx'];
-      const testCases = getTestCases(extensions, 'video');
-      test.each(testCases)('%s should return %s', function (input, expected) {
+      test.each([
+        ['mp4', 'video'],
+        ['avi', 'video'],
+        ['ogv', 'video'],
+        ['ogx', 'video'],
+      ])('%s should return %s', function (input, expected) {
         expect(fromExtension(input)).toBe(expected);
         expect(fromExtension(`.${input}`)).toBe(expected);
       });
     });
 
     describe('audio', () => {
-      const extensions = ['wav', 'mp3', 'mid', 'oga', 'ogg'];
-      const testCases = getTestCases(extensions, 'audio');
-      test.each(testCases)('%s should return %s', function (input, expected) {
+      test.each([
+        ['wav', 'audio'],
+        ['mp3', 'audio'],
+        ['mid', 'audio'],
+        ['oga', 'audio'],
+        ['ogg', 'audio'],
+      ])('%s should return %s', function (input, expected) {
         expect(fromExtension(input)).toBe(expected);
         expect(fromExtension(`.${input}`)).toBe(expected);
       });
     });
 
     describe('archive', () => {
-      const extensions = ['zip', 'gzip', 'gz', 'tar.gz', 'tar', '7z'];
-      const testCases = getTestCases(extensions, 'archive');
-      test.each(testCases)('%s should return %s', function (input, expected) {
+      test.each([
+        ['zip', 'archive'],
+        ['gzip', 'archive'],
+        ['gz', 'archive'],
+        ['tar.gz', 'archive'],
+        ['tar', 'archive'],
+        ['7z', 'archive'],
+      ])('%s should return %s', function (input, expected) {
         expect(fromExtension(input)).toBe(expected);
         expect(fromExtension(`.${input}`)).toBe(expected);
       });
     });
 
     describe('document', () => {
-      const extensions = ['pdf', 'doc', 'docx', 'odt', 'rtf'];
-      const testCases = getTestCases(extensions, 'document');
-      test.each(testCases)('%s should return %s', function (input, expected) {
+      test.each([
+        ['pdf', 'document'],
+        ['doc', 'document'],
+        ['docx', 'document'],
+        ['odt', 'document'],
+        ['rtf', 'document'],
+      ])('%s should return %s', function (input, expected) {
         expect(fromExtension(input)).toBe(expected);
         expect(fromExtension(`.${input}`)).toBe(expected);
       });
     });
 
     describe('spreadsheet', () => {
-      const extensions = ['csv', 'tsv', 'xls', 'xlsx', 'ods'];
-      const testCases = getTestCases(extensions, 'spreadsheet');
-      test.each(testCases)('%s should return %s', function (input, expected) {
+      test.each([
+        ['csv', 'spreadsheet'],
+        ['tsv', 'spreadsheet'],
+        ['xls', 'spreadsheet'],
+        ['xlsx', 'spreadsheet'],
+        ['ods', 'spreadsheet'],
+      ])('%s should return %s', function (input, expected) {
         expect(fromExtension(input)).toBe(expected);
         expect(fromExtension(`.${input}`)).toBe(expected);
       });
     });
 
     describe('presentation', () => {
-      const extensions = ['ppt', 'pptx', 'odp'];
-      const testCases = getTestCases(extensions, 'presentation');
-      test.each(testCases)('%s should return %s', function (input, expected) {
+      test.each([
+        ['ppt', 'presentation'],
+        ['pptx', 'presentation'],
+        ['odp', 'presentation'],
+      ])('%s should return %s', function (input, expected) {
         expect(fromExtension(input)).toBe(expected);
         expect(fromExtension(`.${input}`)).toBe(expected);
       });
     });
 
     describe('font', () => {
-      const extensions = ['otf', 'ttf', 'woff', 'woff2'];
-      const testCases = getTestCases(extensions, 'font');
-      test.each(testCases)('%s should return %s', function (input, expected) {
+      test.each([
+        ['otf', 'font'],
+        ['ttf', 'font'],
+        ['woff', 'font'],
+        ['woff2', 'font'],
+      ])('%s should return %s', function (input, expected) {
         expect(fromExtension(input)).toBe(expected);
         expect(fromExtension(`.${input}`)).toBe(expected);
       });
     });
 
     describe('text', () => {
-      const extensions = ['txt', 'css', 'html', 'js', 'jsx', 'json'];
-      const testCases = getTestCases(extensions, 'text');
-      test.each(testCases)('%s should return %s', function (input, expected) {
+      test.each([
+        ['txt', 'text'],
+        ['css', 'text'],
+        ['html', 'text'],
+        ['js', 'text'],
+        ['jsx', 'text'],
+        ['json', 'text'],
+      ])('%s should return %s', function (input, expected) {
         expect(fromExtension(input)).toBe(expected);
         expect(fromExtension(`.${input}`)).toBe(expected);
       });
     });
 
     describe('application', () => {
-      const extensions = ['swf', 'exe', 'dmg', 'jar'];
-      const testCases = getTestCases(extensions, 'application');
-      test.each(testCases)('%s should return %s', function (input, expected) {
+      test.each([
+        ['swf', 'application'],
+        ['exe', 'application'],
+        ['dmg', 'application'],
+        ['jar', 'application'],
+      ])('%s should return %s', function (input, expected) {
         expect(fromExtension(input)).toBe(expected);
         expect(fromExtension(`.${input}`)).toBe(expected);
       });
     });
 
     describe('unknown', () => {
-      const extensions = ['asd', '.asd', '', null, undefined, '.'];
-      const testCases = getTestCases(extensions as string[], 'unknown');
-      test.each(testCases)('%s should return %s', function (input, expected) {
+      test.each([
+        ['asd', 'unknown'],
+        ['.asd', 'unknown'],
+        ['', 'unknown'],
+        [null, 'unknown'],
+        [undefined, 'unknown'],
+        ['.', 'unknown'],
+      ])('%s should return %s', function (input, expected) {
         expect(fromExtension(input as string)).toBe(expected);
       });
     });
