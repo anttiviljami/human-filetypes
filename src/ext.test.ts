@@ -3,6 +3,17 @@ import { fromExtension, getExtensions } from './ext';
 
 describe('extension', () => {
   describe('fromExtension', () => {
+    describe('uppercase extensions', () => {
+      test.each([
+        ['asd', 'ASD'],
+        ['.asd', '.ASD'],
+        ['jpg', 'JPG'],
+        ['mp4', 'MP4'],
+      ])('fromExtension("%s") should be equal fromExtension("%s")', function (lowerCase, upperCase) {
+        expect(fromExtension(lowerCase)).toBe(fromExtension(upperCase));
+      });
+    });
+
     describe('image', () => {
       test.each([
         ['png', 'image'],
@@ -138,6 +149,7 @@ describe('extension', () => {
         ['', 'unknown'],
         [null, 'unknown'],
         [undefined, 'unknown'],
+        ['.', 'unknown'],
       ])('%s should return %s', function (input, expected) {
         expect(fromExtension(input as string)).toBe(expected);
       });
