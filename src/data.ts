@@ -75,7 +75,7 @@ export const mimeData: { [mime: string]: MimeData } = {
   },
   'application/gzip': { extensions: ['.gz', '.gzip'], label: 'GZip Compressed Archive', kind: FileKind.Archive },
   'image/gif': { extensions: ['.gif'], label: 'Graphics Interchange Format (GIF)', kind: FileKind.Image },
-  'application/html': {
+  'text/html': {
     extensions: ['.htm', '.html'],
     label: '.html	HyperText Markup Language (HTML)',
     kind: FileKind.Text,

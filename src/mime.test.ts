@@ -285,7 +285,7 @@ describe('mime', () => {
           [
             'application/x-csh',
             'text/css',
-            'application/html',
+            'text/html',
             'text/calendar',
             'text/javascript',
             'application/json',
