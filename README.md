@@ -96,7 +96,7 @@ In addition, we provide reverse operations `getMimeTypes()` and `getExtensions()
 getMimeTypes('image') // ['image/gif', 'image/jpeg', 'image/png', ...]
 getMimeTypes('audio') // ['audio/midi', 'audio/x-midi', 'audio/mpeg', ...]
 getMimeTypes('video') // ['video/mp4', 'video/mpeg', 'video/ogg', ...]
-etMimeTypes('document') // ['application/pdf', 'application/rtf', ...]
+getMimeTypes('document') // ['application/pdf', 'application/rtf', ...]
 getMimeTypes('font') // ['font/ttf', 'font/woff', ...]
 getMimeTypes('text') // ['text/css', 'application/html', ...]
 getMimeTypes('application') // ['application/octet-stream', 'application/java-archive', ...]
