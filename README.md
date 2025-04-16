@@ -64,19 +64,19 @@ assert.equal(fromExtension('.zip'), 'archive')
 
 The following taxonomy is used:
 
-| File Kind      | Description                    | Examples                  |
-|----------------|--------------------------------|---------------------------|
-| `image`        | Image file                     | `.png`, `.gif`, `.webp`   |
-| `video`        | Video file                     | `.mp4`, `.webm`           |
-| `audio`        | Audio file                     | `.mp3`, `.wav`            |
-| `archive`      | Archive file                   | `.zip`, `.tar`, `.tar.gz` |
-| `document`     | Text Document                  | `.pdf`, `.docx`, `.odt`   |
-| `spreadsheet`  | Spreadsheet                    | `.xlsx`, `.csv`, `.tsv`   |
-| `presentation` | Presentation                   | `.ppt`, `.pptx`, `.odp`   |
-| `font`         | Font package                   | `.ttf`, `.otf`, `.woff2`  |
-| `text`         | Plain text file                | `.txt`, `.html`, `.json`  |
-| `application`  | Executable/application package | `.exe`, `.jar`, `.swf`    |
-| `unknown`      | Unknown                        | -                         |
+| File Kind      | Description                    | Examples                         |
+|----------------|--------------------------------|----------------------------------|
+| `image`        | Image file                     | `.png`, `.gif`, `.webp`          |
+| `video`        | Video file                     | `.mp4`, `.webm`                  |
+| `audio`        | Audio file                     | `.mp3`, `.wav`                   |
+| `archive`      | Archive file                   | `.zip`, `.tar`, `.tar.gz`        |
+| `document`     | Text Document                  | `.pdf`, `.docx`, `.odt`          |
+| `spreadsheet`  | Spreadsheet                    | `.xlsx`, `.csv`, `.tsv`, `.xlsm` |
+| `presentation` | Presentation                   | `.ppt`, `.pptx`, `.odp`          |
+| `font`         | Font package                   | `.ttf`, `.otf`, `.woff2`         |
+| `text`         | Plain text file                | `.txt`, `.html`, `.json`         |
+| `application`  | Executable/application package | `.exe`, `.jar`, `.swf`           |
+| `unknown`      | Unknown                        | -                                |
 
 File kinds are also available to import as an `enum`:
 
