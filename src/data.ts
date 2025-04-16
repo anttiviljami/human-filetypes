@@ -184,6 +184,11 @@ export const mimeData: { [mime: string]: MimeData } = {
   'application/xhtml+xml': { extensions: ['.xhtml'], label: 'XHTML', kind: FileKind.Text },
   'application/vnd.ms-excel': { extensions: ['.xls'], label: 'Microsoft Excel', kind: FileKind.Spreadsheet },
   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': {
+    extensions: ['.xlsm'],
+    label: 'Microsoft Excel',
+    kind: FileKind.Spreadsheet,
+  },
+  'application/vnd.ms-excel.sheet.macroenabled.12': {
     extensions: ['.xlsx'],
     label: 'Microsoft Excel (OpenXML)',
     kind: FileKind.Spreadsheet,

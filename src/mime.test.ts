@@ -248,6 +248,7 @@ describe('mime', () => {
             'application/vnd.oasis.opendocument.spreadsheet',
             'application/vnd.ms-excel',
             'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            'application/vnd.ms-excel.sheet.macroenabled.12',
           ],
         ],
       ])('%s should return %s', function (input, expected) {

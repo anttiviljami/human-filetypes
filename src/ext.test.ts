@@ -87,6 +87,7 @@ describe('extension', () => {
         ['xls', 'spreadsheet'],
         ['xlsx', 'spreadsheet'],
         ['ods', 'spreadsheet'],
+        ['xlsm', 'spreadsheet'],
       ])('%s should return %s', function (input, expected) {
         expect(fromExtension(input)).toBe(expected);
         expect(fromExtension(`.${input}`)).toBe(expected);
@@ -222,7 +223,7 @@ describe('extension', () => {
     });
 
     describe('spreadsheet', () => {
-      test.each([[FileKind.Spreadsheet, ['.csv', '.tsv', '.ods', '.xls', '.xlsx']]])(
+      test.each([[FileKind.Spreadsheet, ['.csv', '.tsv', '.ods', '.xls', '.xlsm', '.xlsx']]])(
         '%s should return %s',
         function (input, expected) {
           expect(getExtensions(input)).toEqual(expected);
