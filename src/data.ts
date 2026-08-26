@@ -91,7 +91,7 @@ export const mimeData: { [mime: string]: MimeData } = {
     label: 'Java Archive (JAR)	application/java-archive',
     kind: FileKind.Application,
   },
-  'image/jpeg': { extensions: ['.jpeg', '.jpg'], label: 'JPEG image', kind: FileKind.Image },
+  'image/jpeg': { extensions: ['.jpeg', '.jpg', '.jfif'], label: 'JPEG image', kind: FileKind.Image },
   'text/javascript': {
     extensions: ['.js', '.mjs', '.jsx', '.ts', '.tsx'],
     label: 'JavaScript',
@@ -99,6 +99,26 @@ export const mimeData: { [mime: string]: MimeData } = {
   },
   'application/json': { extensions: ['.json'], label: 'JSON', kind: FileKind.Text },
   'application/ld+json': { extensions: ['.jsonld'], label: 'JSON-LD format	application/ld+json', kind: FileKind.Text },
+  'text/markdown': {
+    extensions: ['.md', '.markdown'],
+    label: 'Markdown',
+    kind: FileKind.Text,
+  },
+  'application/yaml': {
+    extensions: ['.yaml', '.yml'],
+    label: 'YAML',
+    kind: FileKind.Text,
+  },
+  'text/yaml': {
+    extensions: ['.yaml', '.yml'],
+    label: 'YAML',
+    kind: FileKind.Text,
+  },
+  'application/toml': {
+    extensions: ['.toml'],
+    label: 'TOML',
+    kind: FileKind.Text,
+  },
   'audio/midi': {
     extensions: ['.mid', '.midi'],
     label: '.midi	Musical Instrument Digital Interface (MIDI)',
@@ -110,8 +130,14 @@ export const mimeData: { [mime: string]: MimeData } = {
     kind: FileKind.Audio,
   },
   'audio/mpeg': { extensions: ['.mp3'], label: 'MP3 audio', kind: FileKind.Audio },
-  'video/mp4': { extensions: ['.mp4'], label: 'MP4 video', kind: FileKind.Video },
-  'video/mpeg': { extensions: ['.mpeg'], label: 'MPEG Video', kind: FileKind.Video },
+  'video/mp4': { extensions: ['.mp4', '.m4v'], label: 'MP4 video', kind: FileKind.Video },
+  'audio/mp4': { extensions: ['.m4a'], label: 'MPEG-4 audio', kind: FileKind.Audio },
+  'video/mpeg': { extensions: ['.mpeg', '.mpg'], label: 'MPEG Video', kind: FileKind.Video },
+  'video/matroska': { extensions: ['.mkv'], label: 'Matroska video', kind: FileKind.Video },
+  'video/x-matroska': { extensions: ['.mkv'], label: 'Matroska video', kind: FileKind.Video },
+  'video/quicktime': { extensions: ['.mov'], label: 'QuickTime video', kind: FileKind.Video },
+  'audio/flac': { extensions: ['.flac'], label: 'FLAC audio', kind: FileKind.Audio },
+  'audio/aiff': { extensions: ['.aif', '.aiff'], label: 'AIFF audio', kind: FileKind.Audio },
   'application/vnd.apple.installer+xml': {
     extensions: ['.mpkg'],
     label: 'Apple Installer Package',
@@ -138,6 +164,8 @@ export const mimeData: { [mime: string]: MimeData } = {
   'audio/opus': { extensions: ['.opus'], label: 'Opus audio', kind: FileKind.Audio },
   'font/otf': { extensions: ['.otf'], label: 'OpenType font', kind: FileKind.Font },
   'image/png': { extensions: ['.png'], label: 'Portable Network Graphics', kind: FileKind.Image },
+  'image/apng': { extensions: ['.apng'], label: 'Animated PNG', kind: FileKind.Image },
+  'image/avif': { extensions: ['.avif'], label: 'AVIF image', kind: FileKind.Image },
   'application/pdf': { extensions: ['.pdf'], label: 'Adobe Portable Document Format (PDF)', kind: FileKind.Document },
   'application/x-httpd-php': {
     extensions: ['.php'],
@@ -161,8 +189,13 @@ export const mimeData: { [mime: string]: MimeData } = {
     kind: FileKind.Application,
   },
   'application/x-tar': { extensions: ['.tar'], label: 'Tape Archive (TAR)	application/x-tar', kind: FileKind.Archive },
+  'application/x-bittorrent': {
+    extensions: ['.torrent'],
+    label: 'BitTorrent metadata',
+    kind: FileKind.Archive,
+  },
   'image/tiff': {
-    extensions: ['.tif'],
+    extensions: ['.tif', '.tiff'],
     label: '.tiff File Format (TIFF)',
     kind: FileKind.Image,
   },
@@ -184,12 +217,12 @@ export const mimeData: { [mime: string]: MimeData } = {
   'application/xhtml+xml': { extensions: ['.xhtml'], label: 'XHTML', kind: FileKind.Text },
   'application/vnd.ms-excel': { extensions: ['.xls'], label: 'Microsoft Excel', kind: FileKind.Spreadsheet },
   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': {
-    extensions: ['.xlsm'],
+    extensions: ['.xlsx'],
     label: 'Microsoft Excel',
     kind: FileKind.Spreadsheet,
   },
   'application/vnd.ms-excel.sheet.macroenabled.12': {
-    extensions: ['.xlsx'],
+    extensions: ['.xlsm'],
     label: 'Microsoft Excel (OpenXML)',
     kind: FileKind.Spreadsheet,
   },
@@ -203,7 +236,18 @@ export const mimeData: { [mime: string]: MimeData } = {
     label: 'XML',
     kind: FileKind.Text,
   },
+  'application/manifest+json': {
+    extensions: ['.webmanifest'],
+    label: 'Web application manifest',
+    kind: FileKind.Text,
+  },
   'application/zip': { extensions: ['.zip'], label: 'ZIP archive', kind: FileKind.Archive },
+  'application/x-xz': { extensions: ['.xz'], label: 'XZ compressed archive', kind: FileKind.Archive },
+  'application/zstd': {
+    extensions: ['.zst', '.zstd'],
+    label: 'Zstandard compressed archive',
+    kind: FileKind.Archive,
+  },
   'video/3gpp': {
     extensions: ['.3gp'],
     label: '3GPP audio/video container',
