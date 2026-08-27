@@ -162,7 +162,25 @@ describe('extension', () => {
       test.each([
         [
           FileKind.Image,
-          ['.bmp', '.gif', '.ico', '.jpeg', '.jpg', '.png', '.svg', '.svg', '.tif', '.vsd', '.webp', '.heic', '.heif'],
+          [
+            '.bmp',
+            '.gif',
+            '.ico',
+            '.jpeg',
+            '.jpg',
+            '.jfif',
+            '.png',
+            '.apng',
+            '.avif',
+            '.svg',
+            '.svg',
+            '.tif',
+            '.tiff',
+            '.vsd',
+            '.webp',
+            '.heic',
+            '.heif',
+          ],
         ],
       ])('%s should return %s', function (input, expected) {
         expect(getExtensions(input)).toEqual(expected);
@@ -170,12 +188,29 @@ describe('extension', () => {
     });
 
     describe('video', () => {
-      test.each([[FileKind.Video, ['.avi', '.mp4', '.mpeg', '.ogv', '.ogx', '.ts', '.webm', '.3gp', '.3g2']]])(
-        '%s should return %s',
-        function (input, expected) {
-          expect(getExtensions(input)).toEqual(expected);
-        },
-      );
+      test.each([
+        [
+          FileKind.Video,
+          [
+            '.avi',
+            '.mp4',
+            '.m4v',
+            '.mpeg',
+            '.mpg',
+            '.mkv',
+            '.mkv',
+            '.mov',
+            '.ogv',
+            '.ogx',
+            '.ts',
+            '.webm',
+            '.3gp',
+            '.3g2',
+          ],
+        ],
+      ])('%s should return %s', function (input, expected) {
+        expect(getExtensions(input)).toEqual(expected);
+      });
     });
 
     describe('audio', () => {
@@ -190,6 +225,10 @@ describe('extension', () => {
             '.mid',
             '.midi',
             '.mp3',
+            '.m4a',
+            '.flac',
+            '.aif',
+            '.aiff',
             '.oga',
             '.ogg',
             '.opus',
@@ -205,12 +244,14 @@ describe('extension', () => {
     });
 
     describe('archive', () => {
-      test.each([[FileKind.Archive, ['.arc', '.bz', '.bz2', '.gz', '.gzip', '.rar', '.tar', '.zip', '.7z']]])(
-        '%s should return %s',
-        function (input, expected) {
-          expect(getExtensions(input)).toEqual(expected);
-        },
-      );
+      test.each([
+        [
+          FileKind.Archive,
+          ['.arc', '.bz', '.bz2', '.gz', '.gzip', '.rar', '.tar', '.torrent', '.zip', '.xz', '.zst', '.zstd', '.7z'],
+        ],
+      ])('%s should return %s', function (input, expected) {
+        expect(getExtensions(input)).toEqual(expected);
+      });
     });
 
     describe('document', () => {
@@ -223,7 +264,7 @@ describe('extension', () => {
     });
 
     describe('spreadsheet', () => {
-      test.each([[FileKind.Spreadsheet, ['.csv', '.tsv', '.ods', '.xls', '.xlsm', '.xlsx']]])(
+      test.each([[FileKind.Spreadsheet, ['.csv', '.tsv', '.ods', '.xls', '.xlsx', '.xlsm']]])(
         '%s should return %s',
         function (input, expected) {
           expect(getExtensions(input)).toEqual(expected);
@@ -266,12 +307,20 @@ describe('extension', () => {
             '.tsx',
             '.json',
             '.jsonld',
+            '.md',
+            '.markdown',
+            '.yaml',
+            '.yml',
+            '.yaml',
+            '.yml',
+            '.toml',
             '.php',
             '.sh',
             '.txt',
             '.xhtml',
             '.xml',
             '.xml',
+            '.webmanifest',
           ],
         ],
       ])('%s should return %s', function (input, expected) {
