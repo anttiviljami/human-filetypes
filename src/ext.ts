@@ -47,11 +47,13 @@ export const getExtensions = (fileType: FileKind): string[] => {
 };
 
 const getAllowedExtensions = (fileKind: FileKind): string[] => {
-  return Object.values(mimeData).flatMap((mimeData: MimeData) => {
+  const extensions = Object.values(mimeData).flatMap((mimeData: MimeData) => {
     if (mimeData.kind === fileKind) {
       return mimeData.extensions ?? [];
     }
 
     return [];
   });
+
+  return [...new Set(extensions)];
 };
